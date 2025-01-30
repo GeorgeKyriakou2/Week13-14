@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Challenges</title>
-    </head>
-    <body>
+<head>
+  <meta charset="UTF-8">
+  <title>Challenges</title>
+</head>
+<body>
 
-    <h1>All Challenges</h1>
+<h1>All Challenges</h1>
 
-    <ul id="challenges">
+<ul id="challenges">
 
 
-    </ul>
+</ul>
 
-    <script>
-        let ChallengesList = document.getElementById("challenges");
+<script src="GetChallenges.js">
+</script>
 
-        fetch("https://codecyprus.org/th/api/list?include-active=true&include-finished=true")
-            .then(response => response.json()) //Parse JSON text to JavaScript object
-            .then(jsonObject => {
-                console.log(jsonObject); //TODO - Success, do something with the data.
-
-                let treasureHuntsArray =jsonObject.treasureHunts;
-
-                for (let i =0; i<6; i++){
-                    let listItem = document.createElement("li");
-                    listItem.innerHTML = treasureHuntsArray[i].name;
-                    ChallengesList.appendChild(listItem);
-                }
-            });
-
-    </script>
-    </body>
+<script>
+  let ChallengesList = document.getElementById("challenges");
+  getChallenges();
+</script>
+</body>
 </html>
